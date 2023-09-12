@@ -207,7 +207,7 @@ public class QtAndroidWebViewController
                 //allowing access to location without actual ACCESS_FINE_LOCATION may throw security exception
                 webSettings.setGeolocationEnabled(m_hasLocationPermission);
 
-                webSettings.setJavaScriptEnabled(true);
+                webSettings.setJavaScriptEnabled(true);    // PLEASE SET THIS AS FALSE OR CAN CHANGE DYNAMICALLY THRU WEBVIEWSETTINGS , SETTING IT BY DEFAULT AS TRUE LEADS ANDROID APP MEDIUM RISK IN VAPT FINDINGS VIA IMMUNIWEB ,  JS ENABLED IN A WEBVIEW[M10][CWE-749] 
                 if (m_webSettingsSetDisplayZoomControls != null) {
                     try { m_webSettingsSetDisplayZoomControls.invoke(webSettings, false); } catch (Exception e) { e.printStackTrace(); }
                 }
